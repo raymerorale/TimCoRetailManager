@@ -6,6 +6,15 @@
              xmlns:local="clr-namespace:TRMDesktopUI.Views"
              mc:Ignorable="d" Background="White" FontSize="24"
              d:DesignHeight="425" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Style.Triggers>
+                <Trigger Property="Text" Value="">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -18,23 +27,38 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         
-        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0 0 0 20" FontSize="64" FontFamily="Segoe UI Light">
+        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" 
+                   HorizontalAlignment="Center" Margin="0 0 0 20" 
+                   FontSize="64" FontFamily="Segoe UI Light">
             Login Form
         </TextBlock>
 
-        <TextBlock Grid.Row="1" Grid.Column="1">
+        <TextBlock x:Name="ErrorMessage" TextWrapping="Wrap" 
+                   Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" 
+                   Margin="0 0 0 10" MaxWidth="300" 
+                   Foreground="Red" FontSize="20" />
+
+        <TextBlock Grid.Row="2" Grid.Column="1" Margin="0 0 5 10">
             Username:
         </TextBlock>
-        <TextBox x:Name="UserName" Grid.Row="1" Grid.Column="2" MinWidth="150" Margin="0 0 0 10" />
-        
-        <TextBlock Grid.Row="2" Grid.Column="1">
+        <TextBox x:Name="UserName" Grid.Row="2" Grid.Column="2" 
+                 MinWidth="350" Margin="0 0 0 10" />
+
+        <TextBlock Grid.Row="3" Grid.Column="1" Margin="0 0 5 10">
             Password:
         </TextBlock>
-        <PasswordBox x:Name="Password" Grid.Row="2" Grid.Column="2" MinWidth="150" Margin="0 0 0 20" />
-
-        <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" x:Name="Login" Padding="20 5" >Log in</Button>
+        <PasswordBox x:Name="Password" Grid.Row="3" Grid.Column="2" 
+                     MinWidth="350" Margin="0 0 0 20" />
+        
+        <Button x:Name="Login" 
+                Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" 
+                HorizontalAlignment="Center" Padding="20 5" >
+            Log in
+        </Button>
+        
     </Grid>
 </UserControl>
