@@ -21,6 +21,8 @@ namespace TRMDesktopUI.Library.Api
             _loggedInUserModel = loggedInUserModel;
         }
 
+        public HttpClient ApiClient { get { return _apiClient; } }
+
         private void InitializeClient()
         {
             _apiClient = new HttpClient();
